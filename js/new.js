@@ -45,8 +45,8 @@ const showAllNews = (array) => {
         const div = document.createElement('div');
         div.classList.add(...divClassList);
         div.innerHTML = `
-        <div>
-            <img class="w-40" src="${child.thumbnail_url}" alt="">
+        <div class="w-60 h-80">
+            <img class="w-40 thumbnail" src="${child.thumbnail_url}" alt="">
         </div>
                 <div class="ml-3">
                     <h1 class="text-3xl font-semibold mb-2">${child.title}</h1>
