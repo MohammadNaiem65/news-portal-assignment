@@ -30,7 +30,7 @@ function getAllNews(id) {
         .then(data => showAllNews(data.data))
 }
 
-// Show All news in a Category
+// Show News Length and news in row
 const resultAmount = document.getElementById('result-amount');
 const showAllNews = (array) => {
     resultAmount.innerHTML = `
