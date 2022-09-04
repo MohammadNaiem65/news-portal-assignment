@@ -16,7 +16,7 @@ const showData = categories => {
     for (const category of categories) {
         const div = document.createElement('div');
         div.innerHTML = `
-        <span onclick=getAllNews(${category.category_id}) class="px-2 py-1 rounded-lg hover:text-blue-600 hover:bg-blue-100 hover:cursor-pointer">${category.category_name}</span>
+        <span onclick=getAllNews(${category.category_id}) class="px-2 py-1 rounded-lg hover:text-white hover:cursor-pointer">${category.category_name}</span>
         `;
         categorySection.appendChild(div);
     }
