@@ -34,6 +34,7 @@ function getAllNews(id) {
 const resultAmount = document.getElementById('result-amount');
 const newsColumn = document.getElementById('news-column');
 const divClassList = ['p-3', 'bg-white', 'text-black', 'rounded', 'mt-2', 'flex', 'items-center'];
+const modalResponse = document.getElementById('modal-response');
 const showAllNews = (array) => {
     newsColumn.innerHTML = "";
     resultAmount.innerHTML = `
@@ -71,14 +72,25 @@ const showAllNews = (array) => {
                         </div>
                         <div>
                             <!-- The button to open modal -->
-                            <label for="${child.author.category_id}" class="btn modal-button bg-white">Show More <i
+                            <label for="${child.category_id}" class="btn modal-button bg-white">Show More <i
                                     class="fa-solid fa-angles-right"></i></label>
                         </div>
                     </div>
                 </div>
         `
         newsColumn.appendChild(div);
-        console.log(child.total_view)
+        const divForModal = document.createElement('div');
+        divForModal.innerHTML = `
+            <input type="checkbox" id="${child.category_id}" class="modal-toggle" />
+        <div class="modal">
+            <div class="modal-box relative">
+                <label for="${child.category_id}" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                <h3 class="text-lg font-bold">${child.title}</h3>
+                <p class="py-4">${child.details}</p>
+            </div>
+        </div>
+        `
+        modalResponse.appendChild(divForModal);
     }
 }
 
