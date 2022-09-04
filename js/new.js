@@ -24,6 +24,7 @@ const showData = categories => {
 
 // Get array of all the news of a category
 function getAllNews(id) {
+    toggleSpinner(true);
     const link = `https://openapi.programming-hero.com/api/news/category/0${id}`;
     fetch(link)
         .then(res => res.json())
@@ -40,7 +41,6 @@ const showAllNews = (array) => {
     resultAmount.innerHTML = `
     <p class="">${array.length} results found.</p>
     `;
-
     for (const child of array) {
         const div = document.createElement('div');
         div.classList.add(...divClassList);
@@ -91,10 +91,19 @@ const showAllNews = (array) => {
         </div>
         `
         modalResponse.appendChild(divForModal);
+        toggleSpinner(false);
     }
 }
 
-
+const toggleLoader = document.getElementById('loader');
+const toggleSpinner = isLoading => {
+    if (isLoading) {
+        toggleLoader.classList.remove('hidden');
+    }
+    else {
+        toggleLoader.classList.add('hidden');
+    }
+}
 
 
 getDataFromApi();
